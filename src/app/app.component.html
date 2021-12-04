@@ -1,7 +1,33 @@
-<app-header #headerComponent></app-header>
-<app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>
-<app-page2 *ngIf="headerComponent.pageRequested === 2"></app-page2>
+<!--<app-header #headerComponent (pageChangeEvent)="incrementHitCounter($event)"></app-header>-->
+<!-- show/hide using *NgIf -->
+<!--<app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>-->
+<!--<app-page2 *ngIf="headerComponent.pageRequested === 2" #page2></app-page2>-->
+<!--&lt;!&ndash;if expression true include hidden else exclude&ndash;&gt;-->
+<!--<app-page3 *ngIf="headerComponent.pageRequested === 3"></app-page3>-->
+
+<!--// show/hide using html property hidden to bind with child component-->
+<!--<app-page1 [hidden]="headerComponent.pageRequested !== 1"></app-page1>-->
+<!--<app-page2 [hidden]="headerComponent.pageRequested !== 2" #page2></app-page2>-->
+<!--&lt;!&ndash;if expression true include hidden else exclude&ndash;&gt;-->
+<!--<app-page3 [hidden]="headerComponent.pageRequested !== 3"></app-page3>-->
+<!--<app-footer #footer [lastAccessed]="startTime"></app-footer>-->
+<app-header #headerComponent (pageChangeEvent)="incrementHitCounter($event)" ></app-header>
+
+
+<app-page1  [hidden]="pageNumber !== 1"   ></app-page1>
+<app-page2 [hidden]="pageNumber !== 2" #page2></app-page2>
 <!--if expression true include hidden else exclude-->
-<app-page3 *ngIf="headerComponent.pageRequested === 3"></app-page3>
+<app-page3 [hidden]="pageNumber !== 3"></app-page3>
+
+
+
 <app-footer #footer [lastAccessed]="startTime"></app-footer>
+
+
+
+
 <button (click)="updateLastAccessed()">update last access</button>
+
+
+
+<app-exploring-array></app-exploring-array>
